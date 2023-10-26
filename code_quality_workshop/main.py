@@ -28,7 +28,7 @@ def av_ic(ortxt,key_l,txtlen):
 		k+=1
 	return m/key_l
 
-#vriskei to megethos kleidiou pou megistopoiei to meso oro tou index of coincidence		
+#vriskei to megethos kleidiou pou megistopoiei to meso oro tou index of coincidence
 def find_best_match(read_data):
 	y = sum_freq(freq)
 	x = len(read_data)
@@ -38,7 +38,7 @@ def find_best_match(read_data):
 		if abs(y-d)<best_diff:
 			key_l = i
 			best_diff = abs(y-d)
-	
+
 	return key_l
 
 #sinartisi pou athroizei ta tetragwna mias listas apo arithmous
@@ -47,7 +47,7 @@ def sum_freq(freq):
 	for a in freq:
 		m+=a*a
 	return m
-#sinartisi pou vriskei to chi-squared statistic pou ekfrazei poso omoies einai 2 katanomes pithanotitas 
+#sinartisi pou vriskei to chi-squared statistic pou ekfrazei poso omoies einai 2 katanomes pithanotitas
 
 def find_chi_sq(txtinput):
 	txtlen = len(txtinput)
@@ -80,7 +80,7 @@ def find_letter(txtinput):
 			best_rot = a
 	return best_rot
 
-#ftiaxnei key_l ipolistes kai efarmozei tin find_letter gia na vrei olokliro kleidi		
+#ftiaxnei key_l ipolistes kai efarmozei tin find_letter gia na vrei olokliro kleidi
 def find_word(txt,key_l):
 	k=0
 	x=''
@@ -109,7 +109,7 @@ def decrypt(txt,key):
 			y=y-26
 		out=out+chr(y)
 	return out
-	
+
 #kiria sinartisi pou kalei tis ipolipes
 def analyze():
 	with open('test.txt','r') as f:

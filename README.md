@@ -1,3 +1,20 @@
+# Software Development & Code Quality Workshop
+
+Before we start:
+1. clone the repo: git clone git@github.com:scify/code_quality_workshop.git
+2. Install dependencies
+    - with poetry
+        ```
+        cd <path to dir>
+        poetry init
+        poetry install
+        ```
+    - with pip:
+        Create virtual environment of your choice.
+        ```
+        pip install -r requirements
+        ```
+
 # Overview
 
 ## What we need?
@@ -8,7 +25,7 @@
 
 ## How?
 
-By enforcing:
+By Using:
 
 1. Linters
 2. Formatters
@@ -68,13 +85,8 @@ It accomplises consistency in the code base and among programmers.
 
 ### Proposed Formatters
 
-
 black (https://github.com/psf/black)
 isort (https://pycqa.github.io/isort/)
-
-
-
-
 
 #### Isort
 
@@ -180,6 +192,13 @@ repos:
     -   id: black
 ```
 
+Then we need to install the specified hooks:
+Run:
+
+```
+pre-commit install
+```
+
 Now every time we commit the hooks will run.
 
 #### pre-commit CLI
@@ -194,25 +213,31 @@ We can also specify a hook to skip when we want to commit:
 ```
 SKIP=flake8 git commit -m "foo"
 ```
+or skip all hooks:
+```
+git commit -m "adding code" --no-verify
+```
 
-
-Note: Ruff's lint hook should be placed after other formatting tools, such as Ruff's format hook, Black, or isort.
+NOTE: Ruff's lint hook should be placed after other formatting tools, such as Ruff's format hook, Black, or isort.
 
 ### Enforcing on Push/Merge
 
 Github Actions
 
 We can enforce certain actions to run when either a push is made, a pull request is created etc.
+These actions could involve:
+- Check linting
+- Tests
+- Other
 
 That is what we would call a very very basic CI!
+
+NOTE: Format should be avoided in CI. Since formatting changes the source code, we would not want that to run in the CI as this would result in inconsistencies between code commited in git and code deployed later!
 
 #### What does this CI currently do?
 
 1. Enforces that code quality is always maintained properly on our main/production branch.
 2. Easily tests linting on multiple python versions
-
-
-
 
 ### Other
 
