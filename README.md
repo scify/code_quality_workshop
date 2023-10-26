@@ -23,9 +23,9 @@ A linter can:
 - Catch code smells
 - Find code that is not compliant to a certain style guideline (such as PEP8)
 
-### PEP8 
+### PEP8
 
-PEP8 is a very impactful style guide for python. 
+PEP8 is a very impactful style guide for python.
 
 Example:
 
@@ -43,7 +43,7 @@ From the command line:
 
 ```
 ruff check --select=E,T201 .
-ruff check --select=ALL . 
+ruff check --select=ALL .
 ```
 
 ### Rule examples
@@ -76,7 +76,7 @@ isort (https://pycqa.github.io/isort/)
 
 
 
-#### Isort 
+#### Isort
 
 Sorts and groups our Imports.
 
@@ -156,8 +156,8 @@ black .
 
 ### Enforcing on commit
 
-pre-commit (https://pre-commit.com/) is a tool to easily manage git hooks. With pre-commit we can install git hooks for all the tools 
-discussed so far. 
+pre-commit (https://pre-commit.com/) is a tool to easily manage git hooks. With pre-commit we can install git hooks for all the tools
+discussed so far.
 
 That way, every time we commit all these tools will run and will reject our commit if they don't pass.
 
@@ -195,6 +195,8 @@ We can also specify a hook to skip when we want to commit:
 SKIP=flake8 git commit -m "foo"
 ```
 
+
+Note: Ruff's lint hook should be placed after other formatting tools, such as Ruff's format hook, Black, or isort.
 
 ### Enforcing on Push/Merge
 

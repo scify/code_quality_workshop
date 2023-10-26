@@ -26,6 +26,4 @@ jobs:
       - name: Lint with ruff
         run: |
           # stop the build if there are Python syntax errors or undefined names
-          ruff --format=github --select=E,F,N
-          # default set of ruff rules with GitHub Annotations
-          ruff --format=github
+          ruff check .
